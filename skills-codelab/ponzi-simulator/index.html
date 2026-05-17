@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponzi Scheme Simulator</title>
+    <meta name="description" content="An interactive educational simulation of a Ponzi scheme to demonstrate its mechanics and inevitable collapse.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <h1>Ponzi Scheme Simulator</h1>
+            <p>Learn how it works and why it always collapses.</p>
+        </header>
+
+        <main>
+            <div class="dashboard grid">
+                <div class="card stat-card glow">
+                    <h3>Total Funds</h3>
+                    <p id="total-funds" class="value positive">$0</p>
+                </div>
+                <div class="card stat-card">
+                    <h3>Total Investors</h3>
+                    <p id="total-investors" class="value">0</p>
+                </div>
+                <div class="card stat-card">
+                    <h3>Required Payouts (Next Month)</h3>
+                    <p id="required-payouts" class="value negative">$0</p>
+                </div>
+                <div class="card stat-card founder">
+                    <h3>Founder's Cut</h3>
+                    <p id="founder-cut" class="value">$0</p>
+                </div>
+            </div>
+
+            <div class="controls card">
+                <h2>Simulation Controls</h2>
+                <div class="control-actions">
+                    <button id="btn-recruit-10" class="btn primary">Recruit 10 Investors</button>
+                    <button id="btn-recruit-50" class="btn primary">Recruit 50 Investors</button>
+                    <button id="btn-next-month" class="btn secondary">Advance 1 Month</button>
+                </div>
+                <p id="system-status" class="status-msg">System is stable... for now.</p>
+            </div>
+
+            <div class="visualization card">
+                <h2>The Pyramid</h2>
+                <div class="pyramid-container" id="pyramid-container">
+                    <!-- Dynamic visualization goes here -->
+                </div>
+            </div>
+
+            <div class="education card">
+                <h2>How it Works</h2>
+                <div class="explanation-box" id="explanation-box">
+                    <p><strong>Phase 1: The Setup.</strong> You are the founder. Recruit new investors by promising them high returns (e.g., 20% a month). You will use the money from new investors to pay off the early investors, keeping a cut for yourself.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="collapse-modal" class="modal hidden">
+        <div class="modal-content card">
+            <h2>The Collapse</h2>
+            <p>The scheme has collapsed! You no longer have enough funds to pay the required returns to your investors.</p>
+            <p>This is the mathematical reality of a Ponzi scheme: it requires an exponentially growing base of new investors to sustain the payouts for earlier ones. Once recruitment slows, the system breaks.</p>
+            <div class="modal-stats">
+                <p>Final Founder's Profit: <strong id="final-profit">$0</strong></p>
+                <p>Investors Scammed: <strong id="final-scammed">0</strong></p>
+            </div>
+            <button id="btn-restart" class="btn primary">Restart Simulation</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
